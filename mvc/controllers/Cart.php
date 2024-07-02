@@ -82,7 +82,7 @@ class cart extends ControllerBase
     public function removeItemcart($cartId)
     {
         unset($_SESSION['cart'][$cartId]);
-        if (isset($_SESSION['user_id'])) {
+if (isset($_SESSION['user_id'])) {
             $cart = $this->model("cartModel");
             if ($cart->remove($cartId)) {
                 if ($_SESSION['cart'] == null) {
@@ -168,7 +168,7 @@ class cart extends ControllerBase
     {
         $voucher = $this->model("voucherModel");
         $voucher->cancel($_SESSION['voucher']['code']);
-        unset($_SESSION['voucher']);
+unset($_SESSION['voucher']);
         $this->redirect("cart", "checkout");
     }
 
